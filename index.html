@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self';
+                 script-src 'self' https://cdnjs.cloudflare.com https://www.googletagmanager.com https://www.google-analytics.com;
+                 style-src 'self' 'unsafe-inline';
+                 img-src 'self' data: https:;
+                 connect-src 'self' https://www.google-analytics.com;
+                 object-src 'none';
+                 base-uri 'self';
+                 frame-ancestors 'none';
+                 form-action 'self';
+                 upgrade-insecure-requests;">
+
+  <meta name="description" content="Dark Horse Developers secure, optimized, and monitored computer networking project website.">
+  <title>Dark Horse Developers | Project 2</title>
+
+  <link rel="preload" href="project2_style.css" as="style">
+  <link rel="stylesheet" href="project2_style.css">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-REPLACE-WITH-ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    window.gtag = window.gtag || gtag;
+    gtag('js', new Date());
+    gtag('config', 'G-REPLACE-WITH-ID');
+  </script>
+</head>
+
+<body>
+<header>
+  <nav class="navbar">
+    <h1 class="logo">The Dark Horse Developers</h1>
+
+    <button class="menu-toggle" aria-label="Open navigation">☰</button>
+
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="networking_project2.html">Networking</a>
+      <a href="#security">Security</a>
+      <a href="#monitoring">Monitoring</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <div>
+      <p class="eyebrow">Computer Networking Project 2</p>
+      <h2>Secure, Optimized, and Monitored Website</h2>
+      <p>
+        This updated website demonstrates HTTPS deployment, XSS protection,
+        brute-force protection, performance optimization, and traffic/security monitoring.
+      </p>
+      <a class="cta" href="networking_project2.html">View Networking Concepts</a>
+    </div>
+  </section>
+
+  <section class="about-section">
+    <div class="image-container">
+      <img
+        src="images/profile_ComputerNetworks.jpg"
+        alt="Profile photo"
+        class="profile-image"
+        loading="lazy"
+        onerror="this.src='https://placehold.co/500x500/1c1c1c/ffffff?text=Dark+Horse+Developers';">
+    </div>
+
+    <div class="text-container">
+      <h2>Meet The Team</h2>
+
+      <p>
+        We are the Dark Horse Developers. We built this website for our computer networking
+        course and upgraded it for Project 2 with security, performance, deployment, and monitoring features.
+      </p>
+
+      <p>
+        Developer 1: @ramibaderr<br>
+        Developer 2: @max._.180
+      </p>
+    </div>
+  </section>
+
+  <section class="status-grid" id="security">
+    <article class="status-card">
+      <h3>HTTPS Enabled</h3>
+      <p>GitHub Pages serves the website through HTTPS, which encrypts traffic between the user and the website.</p>
+      <span class="tag">Security</span>
+    </article>
+
+    <article class="status-card">
+      <h3>XSS Protection</h3>
+      <p>User input is sanitized with DOMPurify before being displayed on the page.</p>
+      <span class="tag">Security</span>
+    </article>
+
+    <article class="status-card">
+      <h3>Brute-Force Protection</h3>
+      <p>The demo login form blocks repeated failed login attempts.</p>
+      <span class="tag">Security</span>
+    </article>
+
+    <article class="status-card">
+      <h3>Content Security Policy</h3>
+      <p>The website restricts where scripts, styles, images, and network connections can load from.</p>
+      <span class="tag">Security</span>
+    </article>
+  </section>
+
+  <section class="tabs-section">
+    <div class="tabs">
+      <button class="tab-button active" data-tab="skills">Skills</button>
+      <button class="tab-button" data-tab="experience">Experience</button>
+      <button class="tab-button" data-tab="education">Education</button>
+    </div>
+
+    <div class="tab-content">
+      <div id="skills" class="tab-panel active">
+        <ul>
+          <li>HTML & CSS</li>
+          <li>JavaScript</li>
+          <li>Computer Networking</li>
+          <li>Website Security</li>
+          <li>Performance Optimization</li>
+          <li>Monitoring and Traffic Analysis</li>
+        </ul>
+      </div>
+
+      <div id="experience" class="tab-panel">
+        <div class="timeline">
+          <div class="timeline-item">
+            <h3>2026</h3>
+            <p>Coding, software development, networking, and secure website deployment.</p>
+          </div>
+        </div>
+      </div>
+
+      <div id="education" class="tab-panel">
+        <div class="timeline">
+          <div class="timeline-item">
+            <h3>2021 - 2023</h3>
+            <p>BS Academy: Graduating with a degree in FINESSE.</p>
+          </div>
+
+          <div class="timeline-item">
+            <h3>2023 - Present</h3>
+            <p>College of Science and Tequila.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="interactive-grid">
+    <article class="panel">
+      <h2>Secure Guestbook Demo</h2>
+      <p>
+        This demonstrates dynamic content and XSS protection. The message is sanitized before it appears on the page.
+      </p>
+
+      <form id="guestbook-form">
+        <label for="guest-name">Name</label>
+        <input id="guest-name" type="text" maxlength="40" placeholder="Your name" required>
+
+        <label for="guest-message">Message</label>
+        <textarea id="guest-message" maxlength="160" placeholder="Write a short message" required></textarea>
+
+        <button type="submit">Save Message</button>
+      </form>
+
+      <div class="button-row">
+        <button id="clear-messages" type="button">Clear Messages</button>
+      </div>
+
+      <ul id="guestbook-list" class="message-list"></ul>
+    </article>
+
+    <article class="panel">
+      <h2>Brute-Force Protection Demo</h2>
+      <p>
+        This form blocks login attempts after three failed tries. The demo username is <strong>demo</strong>
+        and the password is <strong>networking</strong>.
+      </p>
+
+      <form id="login-form">
+        <label for="demo-user">Username</label>
+        <input id="demo-user" type="text" placeholder="demo" required>
+
+        <label for="demo-pass">Password</label>
+        <input id="demo-pass" type="password" placeholder="networking" required>
+
+        <button type="submit">Try Login</button>
+      </form>
+
+      <p id="login-status" class="notice"></p>
+    </article>
+  </section>
+
+  <section id="monitoring" class="panel">
+    <h2>Traffic & Security Monitoring</h2>
+    <p>
+      This section records local visits, page load time, and security events such as failed login attempts
+      or sanitized user input.
+    </p>
+
+    <div class="metrics">
+      <div>
+        <strong id="visit-count">0</strong>
+        <span>Local visits</span>
+      </div>
+
+      <div>
+        <strong id="event-count">0</strong>
+        <span>Security events</span>
+      </div>
+
+      <div>
+        <strong id="load-time">0 ms</strong>
+        <span>Page load time</span>
+      </div>
+    </div>
+
+    <h3>Security Event Log</h3>
+    <ul id="security-log" class="log-list"></ul>
+  </section>
+</main>
+
+<footer>
+  <p>© 2026 Maxim Moltmann, Rami Bader | Networking Project 2</p>
+</footer>
+
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.2.6/purify.min.js"></script>
+<script defer src="project2_script.js"></script>
+</body>
+</html>
