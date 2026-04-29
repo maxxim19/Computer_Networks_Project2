@@ -1,9 +1,10 @@
-const CACHE_NAME = 'dark-horse-project2-cache-v1';
+const CACHE_NAME = 'dark-horse-project2-cache-v2';
 
 const ASSETS = [
   './',
   './index.html',
   './networking_project2.html',
+  './secret_project2.html',
   './project2_style.css',
   './project2_script.js'
 ];
