@@ -17,6 +17,7 @@
                  upgrade-insecure-requests;">
 
   <meta name="description" content="Dark Horse Developers secure, optimized, and monitored computer networking project website.">
+
   <title>Dark Horse Developers | Project 2</title>
 
   <link rel="preload" href="project2_style.css" as="style">
@@ -49,14 +50,19 @@
 </header>
 
 <main>
+
   <section class="hero">
     <div>
       <p class="eyebrow">Computer Networking Project 2</p>
+
       <h2>Secure, Optimized, and Monitored Website</h2>
+
       <p>
         This updated website demonstrates HTTPS deployment, XSS protection,
-        brute-force protection, performance optimization, and traffic/security monitoring.
+        brute-force login protection, performance optimization, protected-page access,
+        and traffic/security monitoring.
       </p>
+
       <a class="cta" href="networking_project2.html">View Networking Concepts</a>
     </div>
   </section>
@@ -76,7 +82,8 @@
 
       <p>
         We are the Dark Horse Developers. We built this website for our computer networking
-        course and upgraded it for Project 2 with security, performance, deployment, and monitoring features.
+        course and upgraded it for Project 2 with security, performance, deployment,
+        monitoring, and a protected login page.
       </p>
 
       <p>
@@ -89,26 +96,52 @@
   <section class="status-grid" id="security">
     <article class="status-card">
       <h3>HTTPS Enabled</h3>
-      <p>GitHub Pages serves the website through HTTPS, which encrypts traffic between the user and the website.</p>
+      <p>
+        GitHub Pages serves the website through HTTPS, which encrypts traffic between
+        the user and the website.
+      </p>
       <span class="tag">Security</span>
     </article>
 
     <article class="status-card">
       <h3>XSS Protection</h3>
-      <p>User input is sanitized with DOMPurify before being displayed on the page.</p>
+      <p>
+        User input is sanitized with DOMPurify before being displayed, which helps prevent
+        malicious script injection.
+      </p>
       <span class="tag">Security</span>
     </article>
 
     <article class="status-card">
       <h3>Brute-Force Protection</h3>
-      <p>The demo login form blocks repeated failed login attempts.</p>
+      <p>
+        The secure login demo blocks the user after three failed login attempts.
+      </p>
       <span class="tag">Security</span>
     </article>
 
     <article class="status-card">
+      <h3>Protected Page Access</h3>
+      <p>
+        A secret page can only be opened after the correct demo username and password are entered.
+      </p>
+      <span class="tag">Authentication</span>
+    </article>
+
+    <article class="status-card">
       <h3>Content Security Policy</h3>
-      <p>The website restricts where scripts, styles, images, and network connections can load from.</p>
+      <p>
+        The website restricts where scripts, styles, images, and network connections can load from.
+      </p>
       <span class="tag">Security</span>
+    </article>
+
+    <article class="status-card">
+      <h3>Performance Optimization</h3>
+      <p>
+        The site uses lazy loading, deferred JavaScript, CSS preloading, and service worker caching.
+      </p>
+      <span class="tag">Performance</span>
     </article>
   </section>
 
@@ -126,6 +159,7 @@
           <li>JavaScript</li>
           <li>Computer Networking</li>
           <li>Website Security</li>
+          <li>Authentication Demo</li>
           <li>Performance Optimization</li>
           <li>Monitoring and Traffic Analysis</li>
         </ul>
@@ -135,7 +169,10 @@
         <div class="timeline">
           <div class="timeline-item">
             <h3>2026</h3>
-            <p>Coding, software development, networking, and secure website deployment.</p>
+            <p>
+              Coding, software development, networking, secure website deployment,
+              and website monitoring.
+            </p>
           </div>
         </div>
       </div>
@@ -157,10 +194,13 @@
   </section>
 
   <section class="interactive-grid">
+
     <article class="panel">
       <h2>Secure Guestbook Demo</h2>
+
       <p>
-        This demonstrates dynamic content and XSS protection. The message is sanitized before it appears on the page.
+        This demonstrates dynamic content and XSS protection. The message is sanitized
+        before it appears on the page.
       </p>
 
       <form id="guestbook-form">
@@ -181,10 +221,16 @@
     </article>
 
     <article class="panel">
-      <h2>Brute-Force Protection Demo</h2>
+      <h2>Secure Login Demo</h2>
+
       <p>
-        This form blocks login attempts after three failed tries. The demo username is <strong>demo</strong>
-        and the password is <strong>networking</strong>.
+        This demo simulates a protected login system. After three failed login attempts,
+        the user is blocked to demonstrate brute-force protection.
+      </p>
+
+      <p>
+        Demo username: <strong>demo</strong><br>
+        Demo password: <strong>networking</strong>
       </p>
 
       <form id="login-form">
@@ -194,18 +240,20 @@
         <label for="demo-pass">Password</label>
         <input id="demo-pass" type="password" placeholder="networking" required>
 
-        <button type="submit">Try Login</button>
+        <button type="submit">Log In</button>
       </form>
 
       <p id="login-status" class="notice"></p>
     </article>
+
   </section>
 
   <section id="monitoring" class="panel">
     <h2>Traffic & Security Monitoring</h2>
+
     <p>
-      This section records local visits, page load time, and security events such as failed login attempts
-      or sanitized user input.
+      This section records local visits, page load time, and security events such as failed
+      login attempts, blocked brute-force attempts, successful logins, and sanitized user input.
     </p>
 
     <div class="metrics">
@@ -228,6 +276,7 @@
     <h3>Security Event Log</h3>
     <ul id="security-log" class="log-list"></ul>
   </section>
+
 </main>
 
 <footer>
