@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self';
+                 script-src 'self';
+                 style-src 'self' 'unsafe-inline';
+                 img-src 'self' data: https:;
+                 object-src 'none';
+                 base-uri 'self';
+                 frame-ancestors 'none';
+                 form-action 'self';
+                 upgrade-insecure-requests;">
+
+  <meta name="description" content="Networking concepts and Project 2 implementation details.">
+  <title>Networking Concepts | Project 2</title>
+
+  <link rel="preload" href="project2_style.css" as="style">
+  <link rel="stylesheet" href="project2_style.css">
+</head>
+
+<body>
+<header>
+  <nav class="navbar">
+    <h1 class="logo">The Dark Horse Developers</h1>
+
+    <button class="menu-toggle" aria-label="Open navigation">☰</button>
+
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="networking_project2.html">Networking</a>
+      <a href="#project2">Project 2</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <section class="hero small-hero">
+    <div>
+      <p class="eyebrow">Computer Networks</p>
+      <h1>Networking Concepts</h1>
+      <p>Key networking concepts connected to our Project 2 website implementation.</p>
+    </div>
+  </section>
+
+  <section class="concept-grid">
+    <article class="concept-card">
+      <h2>DNS</h2>
+      <p>
+        DNS translates human-readable domain names into IP addresses. When a user visits
+        a website, DNS resolves the domain name into the server address.
+      </p>
+    </article>
+
+    <article class="concept-card">
+      <h2>IP Addressing</h2>
+      <p>
+        Every device connected to the internet uses an IP address. Websites can support
+        IPv4 and IPv6 so modern networks can reach them.
+      </p>
+    </article>
+
+    <article class="concept-card">
+      <h2>HTTP vs HTTPS</h2>
+      <p>
+        HTTP transfers web pages without encryption. HTTPS adds TLS encryption, which protects
+        website traffic from interception and tampering.
+      </p>
+    </article>
+
+    <article class="concept-card">
+      <h2>CDN</h2>
+      <p>
+        A Content Delivery Network stores website assets closer to users. This can reduce latency
+        and improve load times.
+      </p>
+    </article>
+
+    <article class="concept-card">
+      <h2>Caching</h2>
+      <p>
+        Caching stores copies of files so repeat visits load faster and reduce unnecessary
+        network requests.
+      </p>
+    </article>
+
+    <article class="concept-card">
+      <h2>Monitoring</h2>
+      <p>
+        Monitoring tools track traffic, performance, errors, and suspicious behavior so developers
+        can detect issues faster.
+      </p>
+    </article>
+  </section>
+
+  <section id="project2" class="panel">
+    <h2>Project 2 Enhancements Implemented</h2>
+
+    <div class="checklist">
+      <p>✅ HTTPS-ready deployment through GitHub Pages</p>
+      <p>✅ Content Security Policy to reduce injection risk</p>
+      <p>✅ DOMPurify input sanitization against XSS</p>
+      <p>✅ Local brute-force protection demo using rate limiting</p>
+      <p>✅ Lazy loading image optimization</p>
+      <p>✅ Service worker caching for performance</p>
+      <p>✅ Local traffic and security event monitoring</p>
+      <p>✅ Google Analytics placeholder included</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>Networking Project — Computer Networks</p>
+</footer>
+
+<script defer src="project2_script.js"></script>
+</body>
+</html>
