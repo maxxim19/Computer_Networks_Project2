@@ -1,261 +1,122 @@
-const tabButtons = document.querySelectorAll('.tab-button');
-const tabPanels = document.querySelectorAll('.tab-panel');
-const navLinks = document.querySelector('.nav-links');
-const menuToggle = document.querySelector('.menu-toggle');
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-const logKey = 'dh_project2_security_events';
-const visitKey = 'dh_project2_visit_count';
-const guestbookKey = 'dh_project2_guestbook_messages';
-const loginKey = 'dh_project2_login_attempts';
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self';
+                 script-src 'self';
+                 style-src 'self' 'unsafe-inline';
+                 img-src 'self' data: https:;
+                 object-src 'none';
+                 base-uri 'self';
+                 frame-ancestors 'none';
+                 form-action 'self';
+                 upgrade-insecure-requests;">
 
-function safeText(value) {
-  if (window.DOMPurify) {
-    return DOMPurify.sanitize(value, {
-      ALLOWED_TAGS: [],
-      ALLOWED_ATTR: []
-    });
-  }
+  <meta name="description" content="Networking concepts and Project 2 implementation details.">
+  <title>Networking Concepts | Project 2</title>
 
-  return String(value).replace(/[<>&"']/g, function(char) {
-    return {
-      '<': '&lt;',
-      '>': '&gt;',
-      '&': '&amp;',
-      '"': '&quot;',
-      "'": '&#039;'
-    }[char];
-  });
-}
+  <link rel="preload" href="project2_style.css" as="style">
+  <link rel="stylesheet" href="project2_style.css">
+</head>
 
-function getStoredArray(key) {
-  try {
-    return JSON.parse(localStorage.getItem(key)) || [];
-  } catch (error) {
-    return [];
-  }
-}
+<body>
+<header>
+  <nav class="navbar">
+    <h1 class="logo">The Dark Horse Developers</h1>
 
-function setStoredArray(key, value) {
-  localStorage.setItem(key, JSON.stringify(value));
-}
+    <button class="menu-toggle" aria-label="Open navigation">☰</button>
 
-function addSecurityEvent(type, detail) {
-  const events = getStoredArray(logKey);
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="networking_project2.html">Networking</a>
+      <a href="#project2">Project 2</a>
+    </div>
+  </nav>
+</header>
 
-  events.unshift({
-    type: safeText(type),
-    detail: safeText(detail),
-    time: new Date().toLocaleString()
-  });
+<main>
+  <section class="hero small-hero">
+    <div>
+      <p class="eyebrow">Computer Networks</p>
+      <h1>Networking Concepts</h1>
+      <p>Key networking concepts connected to our Project 2 website implementation.</p>
+    </div>
+  </section>
 
-  setStoredArray(logKey, events.slice(0, 8));
-  renderSecurityLog();
-}
+  <section class="concept-grid">
+    <article class="concept-card">
+      <h2>DNS</h2>
+      <p>
+        DNS translates human-readable domain names into IP addresses. When a user visits
+        a website, DNS resolves the domain name into the server address.
+      </p>
+    </article>
 
-function renderSecurityLog() {
-  const list = document.getElementById('security-log');
-  const count = document.getElementById('event-count');
+    <article class="concept-card">
+      <h2>IP Addressing</h2>
+      <p>
+        Every device connected to the internet uses an IP address. Websites can support
+        IPv4 and IPv6 so modern networks can reach them.
+      </p>
+    </article>
 
-  if (!list || !count) {
-    return;
-  }
+    <article class="concept-card">
+      <h2>HTTP vs HTTPS</h2>
+      <p>
+        HTTP transfers web pages without encryption. HTTPS adds TLS encryption, which protects
+        website traffic from interception and tampering.
+      </p>
+    </article>
 
-  const events = getStoredArray(logKey);
-  count.textContent = events.length;
-  list.innerHTML = '';
+    <article class="concept-card">
+      <h2>CDN</h2>
+      <p>
+        A Content Delivery Network stores website assets closer to users. This can reduce latency
+        and improve load times.
+      </p>
+    </article>
 
-  if (events.length === 0) {
-    const item = document.createElement('li');
-    item.textContent = 'No security events recorded yet.';
-    list.appendChild(item);
-    return;
-  }
+    <article class="concept-card">
+      <h2>Caching</h2>
+      <p>
+        Caching stores copies of files so repeat visits load faster and reduce unnecessary
+        network requests.
+      </p>
+    </article>
 
-  events.forEach(function(event) {
-    const item = document.createElement('li');
-    item.textContent = '[' + event.time + '] ' + event.type + ': ' + event.detail;
-    list.appendChild(item);
-  });
-}
+    <article class="concept-card">
+      <h2>Monitoring</h2>
+      <p>
+        Monitoring tools track traffic, performance, errors, and suspicious behavior so developers
+        can detect issues faster.
+      </p>
+    </article>
+  </section>
 
-function updateVisitCount() {
-  const count = (Number(localStorage.getItem(visitKey)) || 0) + 1;
-  localStorage.setItem(visitKey, String(count));
+  <section id="project2" class="panel">
+    <h2>Project 2 Enhancements Implemented</h2>
 
-  const visitCount = document.getElementById('visit-count');
+    <div class="checklist">
+      <p>- HTTPS-ready deployment through GitHub Pages</p>
+      <p>- Content Security Policy to reduce injection risk</p>
+      <p>- DOMPurify input sanitization against XSS</p>
+      <p>- Secure login demo with protected page access</p>
+      <p>- Brute-force protection after three failed login attempts</p>
+      <p>- Lazy loading image optimization</p>
+      <p>- Service worker caching for performance</p>
+      <p>- Local traffic and security event monitoring</p>
+      <p>- Google Analytics placeholder included</p>
+    </div>
+  </section>
+</main>
 
-  if (visitCount) {
-    visitCount.textContent = count;
-  }
-}
+<footer>
+  <p>Networking Project — Computer Networks</p>
+</footer>
 
-function updateLoadTime() {
-  const loadTime = document.getElementById('load-time');
-
-  if (!loadTime) {
-    return;
-  }
-
-  window.addEventListener('load', function() {
-    const timing = performance.getEntriesByType('navigation')[0];
-
-    if (timing) {
-      loadTime.textContent = Math.round(timing.loadEventEnd - timing.startTime) + ' ms';
-    }
-  });
-}
-
-tabButtons.forEach(function(button) {
-  button.addEventListener('click', function() {
-    tabButtons.forEach(function(btn) {
-      btn.classList.remove('active');
-    });
-
-    button.classList.add('active');
-
-    tabPanels.forEach(function(panel) {
-      panel.classList.remove('active');
-    });
-
-    const target = button.getAttribute('data-tab');
-    const targetPanel = document.getElementById(target);
-
-    if (targetPanel) {
-      targetPanel.classList.add('active');
-      addSecurityEvent('Tab activity', 'User opened ' + target + ' tab');
-    }
-  });
-});
-
-if (menuToggle && navLinks) {
-  menuToggle.addEventListener('click', function() {
-    navLinks.classList.toggle('open');
-  });
-}
-
-function renderGuestbook() {
-  const list = document.getElementById('guestbook-list');
-
-  if (!list) {
-    return;
-  }
-
-  const messages = getStoredArray(guestbookKey);
-  list.innerHTML = '';
-
-  if (messages.length === 0) {
-    const item = document.createElement('li');
-    item.textContent = 'No messages yet.';
-    list.appendChild(item);
-    return;
-  }
-
-  messages.forEach(function(message) {
-    const item = document.createElement('li');
-
-    const strong = document.createElement('strong');
-    strong.textContent = message.name;
-
-    const text = document.createElement('p');
-    text.textContent = message.message;
-
-    item.appendChild(strong);
-    item.appendChild(text);
-    list.appendChild(item);
-  });
-}
-
-const guestbookForm = document.getElementById('guestbook-form');
-
-if (guestbookForm) {
-  guestbookForm.addEventListener('submit', function(event) {
-    event.preventDefault();
-
-    const rawName = document.getElementById('guest-name').value.trim();
-    const rawMessage = document.getElementById('guest-message').value.trim();
-
-    const cleanName = safeText(rawName);
-    const cleanMessage = safeText(rawMessage);
-
-    if (rawName !== cleanName || rawMessage !== cleanMessage) {
-      addSecurityEvent('XSS blocked', 'Unsafe input was sanitized before display');
-    } else {
-      addSecurityEvent('Input accepted', 'Guestbook message sanitized and stored locally');
-    }
-
-    const messages = getStoredArray(guestbookKey);
-
-    messages.unshift({
-      name: cleanName,
-      message: cleanMessage
-    });
-
-    setStoredArray(guestbookKey, messages.slice(0, 5));
-
-    guestbookForm.reset();
-    renderGuestbook();
-  });
-}
-
-const clearMessages = document.getElementById('clear-messages');
-
-if (clearMessages) {
-  clearMessages.addEventListener('click', function() {
-    localStorage.removeItem(guestbookKey);
-    addSecurityEvent('Guestbook cleared', 'Stored guestbook messages were removed');
-    renderGuestbook();
-  });
-}
-
-const loginForm = document.getElementById('login-form');
-
-if (loginForm) {
-  loginForm.addEventListener('submit', function(event) {
-    event.preventDefault();
-
-    const status = document.getElementById('login-status');
-    const attempts = Number(localStorage.getItem(loginKey)) || 0;
-
-    if (attempts >= 3) {
-      status.textContent = 'Blocked: too many failed login attempts. Refreshing will not reset the block.';
-      status.style.color = 'var(--danger)';
-      addSecurityEvent('Brute-force blocked', 'Login blocked after repeated failed attempts');
-      return;
-    }
-
-    const username = document.getElementById('demo-user').value.trim();
-    const password = document.getElementById('demo-pass').value.trim();
-
-    if (username === 'demo' && password === 'networking') {
-      localStorage.setItem(loginKey, '0');
-      localStorage.setItem('project2_logged_in', 'true');
-
-      status.textContent = 'Login successful. Redirecting to protected page...';
-      status.style.color = 'var(--success)';
-
-      addSecurityEvent('Login success', 'User accessed protected page');
-
-      setTimeout(function() {
-        window.location.href = 'secret_project2.html';
-      }, 800);
-    } else {
-      localStorage.setItem(loginKey, String(attempts + 1));
-
-      status.textContent = 'Invalid login. Failed attempts: ' + (attempts + 1) + '/3';
-      status.style.color = 'var(--warning)';
-
-      addSecurityEvent('Failed login', 'Attempt ' + (attempts + 1) + ' of 3');
-    }
-  });
-}
-
-updateVisitCount();
-updateLoadTime();
-renderGuestbook();
-renderSecurityLog();
-
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', function() {
-    navigator.serviceWorker.register('project2_sw.js').catch(function() {});
-  });
-}
+<script defer src="project2_script.js"></script>
+</body>
+</html>
